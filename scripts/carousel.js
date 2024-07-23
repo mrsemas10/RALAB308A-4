@@ -1,6 +1,6 @@
-import * as bootstrap from "bootstrap";
+import * as bootstrap from "../bootstrap";
 import { favourite } from "./script.js";
-
+ 
 export function createCarouselItem(imgSrc, imgAlt, imgId) {
     const template = document.querySelector("#carouselItemTemplate");
     const clone = template.content.firstElementChild.cloneNode(true);

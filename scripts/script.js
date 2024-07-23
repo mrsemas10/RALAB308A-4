@@ -1,5 +1,5 @@
 import * as carousel from "./carousel.js";
-import axios from "/axios";
+import axios from "axios";
 
 // The breed selection input element.
 const breedSelect = document.getElementById("breedSelect");
