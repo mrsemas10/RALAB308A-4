@@ -1,5 +1,5 @@
 import * as carousel from "./carousel.js";
-import axios from "axios";
+// import axios from "axios";
 
 // The breed selection input element.
 const breedSelect = document.getElementById("breedSelect");
@@ -37,8 +37,9 @@ async function initalLoad() {
         document.getElementById('breedSelect').appendChild(option);
     })
     console.log(initalLoad);
+   }
+initalLoad();
 
-} 
 /**
  * 2. Create an event handler for breedSelect that does the following:
  * - Retrieve information on the selected breed from the cat API using fetch().
@@ -105,9 +106,9 @@ async function initalLoad() {
  *   you delete that favourite using the API, giving this function "toggle" functionality.
  * - You can call this function by clicking on the heart at the top right of any image.
  */
-// export async function favourite(imgId) {
-//   // your code here
-// }
+export async function favourite(imgId) {
+  // your code here
+}
 
 /**
  * 9. Test your favourite() function by creating a getFavourites() function.
