@@ -1,4 +1,4 @@
-import * as carousel from "./carousel.js";
+import * as Carousel from "./carousel.js";
 // import axios from "axios";
 
 // The breed selection input element.
@@ -21,7 +21,6 @@ const API_KEY = "live_SdTNfFxIsTdJ4satK2SoWgQy1eIsVazPG6YT37Kgsey5pewUn6agrSEttd
  *  - Each option should display text equal to the name of the breed.
  * This function should execute immediately.
  */
-
 async function initalLoad() {
     const response = await fetch('https://api.thecatapi.com/v1/breeds');
     const breeds = await response.json();
@@ -36,9 +35,9 @@ async function initalLoad() {
 
         document.getElementById('breedSelect').appendChild(option);
     })
-    console.log(initalLoad);
-   }
-initalLoad();
+    // console.log(initalLoad);
+}
+initalLoad(); 
 
 /**
  * 2. Create an event handler for breedSelect that does the following:
@@ -55,9 +54,23 @@ initalLoad();
  * - Add a call to this function to the end of your initialLoad function above to create the initial carousel.
  */
 
+breedSelect.addEventListener('change', (evt) => {
+    const breedId = evt.target.value;
+    loadBreedInfo(breedId);
+  });
+
+async function loadBreedInfo(breedId) {
+      const response = await fetch('/images/search?breed_ids=${breedId}&limit=10');
+      const breedInfo = response.data;
+    
+  } 
+
+//this is as far as i got
+
 /**
  * 3. Fork your own sandbox, creating a new one named "JavaScript Axios Lab."
  */
+
 /**
  * 4. Change all of your fetch() functions to axios!
  * - axios has already been imported for you within index.js.
@@ -67,12 +80,14 @@ initalLoad();
  *   by setting a default header with your API key so that you do not have to
  *   send it manually with all of your requests! You can also set a default base URL!
  */
+
 /**
  * 5. Add axios interceptors to log the time between request and response to the console.
  * - Hint: you already have access to code that does this!
  * - Add a console.log statement to indicate when requests begin.
  * - As an added challenge, try to do this on your own without referencing the lesson material.
  */
+
 
 /**
  * 6. Next, we'll create a progress bar to indicate the request is in progress.
@@ -90,6 +105,7 @@ initalLoad();
  *   with for future projects.
  */
 
+
 /**
  * 7. As a final element of progress indication, add the following to your axios interceptors:
  * - In your request interceptor, set the body element's cursor style to "progress."
@@ -106,9 +122,7 @@ initalLoad();
  *   you delete that favourite using the API, giving this function "toggle" functionality.
  * - You can call this function by clicking on the heart at the top right of any image.
  */
-export async function favourite(imgId) {
-  // your code here
-}
+// export async function favourite(imgId) 
 
 /**
  * 9. Test your favourite() function by creating a getFavourites() function.
@@ -119,6 +133,8 @@ export async function favourite(imgId) {
  *    If that isn't in its own function, maybe it should be so you don't have to
  *    repeat yourself in this section.
  */
+
+// initialLoad(); 
 
 /**
  * 10. Test your site, thoroughly!
